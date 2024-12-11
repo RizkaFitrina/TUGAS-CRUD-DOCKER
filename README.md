@@ -19,7 +19,7 @@ This is a simple Book Management System built with Node.js, Express, and EJS, co
 
 1. Clone this repository:
    ```bash
-   git clone [your-repository-url]
+   git clone (https://github.com/RizkaFitrina/TUGAS-CRUD-DOCKER.git)
    cd docker-crud-books
    ```
 
