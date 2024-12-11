@@ -1,0 +1,56 @@
+<%- include('layout/header') %>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="error-container">
+            <i class="fas fa-exclamation-circle text-danger" style="font-size: 4rem;"></i>
+            
+            <h1 class="mt-4 mb-3">Oops! Terjadi Kesalahan</h1>
+            
+            <div class="card">
+                <div class="card-body">
+                    <p class="lead mb-0">
+                        <%= message %>
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="/books" class="btn btn-primary">
+                    <i class="fas fa-home me-1"></i>
+                    Kembali ke Halaman Utama
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-container {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.error-container i {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.error-container h1 {
+    color: var(--dark-gray);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.error-container .card {
+    background-color: var(--light-gray);
+}
+
+.error-container .lead {
+    color: var(--dark-gray);
+}
+</style>
+
+<%- include('layout/footer') %>
