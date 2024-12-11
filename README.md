@@ -1,69 +1,69 @@
-# Docker CRUD Book Management Application
+# Aplikasi Manajemen Buku CRUD dengan Docker
 
-This is a simple Book Management System built with Node.js, Express, and EJS, containerized using Docker. The application allows users to perform CRUD (Create, Read, Update, Delete) operations on book records.
+Ini adalah sistem manajemen buku sederhana yang dibangun menggunakan Node.js, Express, dan EJS, serta dikontainerisasi menggunakan Docker. Aplikasi ini memungkinkan pengguna untuk melakukan operasi CRUD (Create, Read, Update, Delete) pada data buku.
 
-## Features
+## Fitur
 
-1. **Create**: Add new books with title, author, and publication year
-2. **Read**: View list of all books in a clean tabular format
-3. **Update**: Edit existing book information
-4. **Delete**: Remove books from the system
+1. **Tambah Buku**: Tambahkan buku baru dengan judul, penulis, dan tahun terbit.
+2. **Lihat Buku**: Tampilkan daftar semua buku dalam format tabel yang rapi.
+3. **Edit Buku**: Perbarui informasi buku yang ada.
+4. **Hapus Buku**: Hapus buku dari sistem.
 
-## Prerequisites
+## Prasyarat
 
-- Docker Desktop (Windows/Mac) or Docker Engine (Linux)
-- Node.js 18.x or higher (for local development only)
-- Web browser
+- Docker Desktop (Windows/Mac) atau Docker Engine (Linux)
+- Node.js 18.x atau lebih baru (hanya untuk pengembangan lokal)
+- Peramban web
 
-## Installation & Running with Docker
+## Instalasi & Menjalankan dengan Docker
 
-1. Clone this repository:
+1. Clone repositori ini:
    ```bash
    git clone (https://github.com/RizkaFitrina/TUGAS-CRUD-DOCKER.git)
    cd docker-crud-books
    ```
 
-2. Build and run using Docker Compose:
+2. Bangun dan jalankan menggunakan Docker Compose:
    ```bash
    docker-compose up --build
    ```
 
-3. Access the application:
-   - Open your web browser
-   - Navigate to `http://localhost:3000`
+3. Akses aplikasi:
+   - Buka peramban web Anda.
+   - Arahkan ke `http://localhost:3000`.
 
-## Docker Configuration Explanation
+## Penjelasan Konfigurasi Docker
 
 ### Dockerfile
 ```dockerfile
-# Use the official Node.js image as the base
+# Gunakan image Node.js resmi sebagai basis
 FROM node:14
 
-# Set the working directory inside the container
+# Tetapkan direktori kerja di dalam container
 WORKDIR /usr/src/app
 
-# Copy package.json and install dependencies
+# Salin package.json dan instal dependensi
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the app files into the container
+# Salin seluruh file aplikasi ke dalam container
 COPY . .
 
-# Expose port 3000 for the app
+# Buka port 3000 untuk aplikasi
 EXPOSE 3000
 
-# Start the app
+# Jalankan aplikasi
 CMD ["npm", "start"]
 ```
 
-Key components:
-- `FROM node:14`: Uses Node.js 14 as the base image
-- `WORKDIR /usr/src/app`: Sets the working directory in the container
-- `COPY package*.json ./`: Copies package.json files first for better caching
-- `RUN npm install`: Installs dependencies
-- `COPY . .`: Copies application code
-- `EXPOSE 3000`: Documents the port the application uses
-- `CMD ["npm", "start"]`: Specifies the command to run the application
+Komponen utama:
+- `FROM node:14`: Menggunakan Node.js versi 14 sebagai image dasar.
+- `WORKDIR /usr/src/app`: Menetapkan direktori kerja di dalam container.
+- `COPY package*.json ./`: Menyalin file `package.json` untuk caching yang lebih baik.
+- `RUN npm install`: Menginstal dependensi.
+- `COPY . .`: Menyalin seluruh kode aplikasi.
+- `EXPOSE 3000`: Mencatat port yang digunakan aplikasi.
+- `CMD ["npm", "start"]`: Menentukan perintah untuk menjalankan aplikasi.
 
 ### Docker Compose
 ```yaml
@@ -79,15 +79,15 @@ services:
       NODE_ENV: development
 ```
 
-Key components:
-- `version: '3'`: Specifies Docker Compose file version
-- `services`: Defines the services to run
-- `app`: Main application service
-- `ports`: Maps container port to host port
-- `volumes`: Mounts local directory for development
-- `environment`: Sets environment variables
+Komponen utama:
+- `version: '3'`: Menentukan versi file Docker Compose.
+- `services`: Mendefinisikan layanan yang akan dijalankan.
+- `app`: Layanan utama aplikasi.
+- `ports`: Memetakan port container ke port host.
+- `volumes`: Memasangkan direktori lokal untuk pengembangan.
+- `environment`: Mengatur variabel lingkungan.
 
-## Application Structure
+## Struktur Aplikasi
 
 ```
 docker-crud-books/
@@ -114,58 +114,58 @@ docker-crud-books/
 └── README.md
 ```
 
-## Features Implementation
+## Implementasi Fitur
 
-1. **Create Book**
-   - Navigate to "Tambah Buku Baru" button
-   - Fill in book details (title, author, year)
-   - Submit to create new book
+1. **Tambah Buku**
+   - Klik tombol "Tambah Buku Baru".
+   - Isi detail buku (judul, penulis, tahun).
+   - Klik simpan untuk menambahkan buku.
 
-2. **Read Books**
-   - Homepage displays all books in a table
-   - Shows ID, title, author, and publication year
-   - Responsive design for various screen sizes
+2. **Lihat Buku**
+   - Halaman utama menampilkan semua buku dalam tabel.
+   - Tabel mencantumkan ID, judul, penulis, dan tahun terbit.
+   - Desain responsif untuk berbagai ukuran layar.
 
-3. **Update Book**
-   - Click "Edit" button next to book entry
-   - Modify book details in the form
-   - Save changes to update
+3. **Edit Buku**
+   - Klik tombol "Edit" di samping buku.
+   - Ubah detail buku di formulir.
+   - Simpan perubahan untuk memperbarui data buku.
 
-4. **Delete Book**
-   - Click "Hapus" button next to book entry
-   - Confirm deletion in the popup
-   - Book will be removed from the system
+4. **Hapus Buku**
+   - Klik tombol "Hapus" di samping buku.
+   - Konfirmasi penghapusan melalui popup.
+   - Buku akan dihapus dari sistem.
 
-## Development
+## Pengembangan
 
-For local development without Docker:
+Untuk pengembangan lokal tanpa Docker:
 
-1. Install dependencies:
+1. Instal dependensi:
    ```bash
    npm install
    ```
 
-2. Start the application:
+2. Jalankan aplikasi:
    ```bash
    npm start
    ```
 
-3. Access at `http://localhost:3000`
+3. Akses di `http://localhost:3000`.
 
-## Security Considerations
+## Pertimbangan Keamanan
 
-- Input validation implemented for all forms
-- SQL injection protection through parameterized queries
-- XSS protection using EJS template escaping
+- Validasi input diterapkan untuk semua formulir.
+- Perlindungan injeksi SQL melalui query parameterized.
+- Perlindungan XSS menggunakan escape template EJS.
 
-## Contributing
+## Kontribusi
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
+1. Fork repositori ini.
+2. Buat branch fitur Anda.
+3. Commit perubahan Anda.
+4. Push ke branch Anda.
+5. Buat Pull Request baru.
 
-## License
+## Lisensi
 
-This project is licensed under the ISC License.
+Proyek ini dilisensikan di bawah Lisensi ISC.
